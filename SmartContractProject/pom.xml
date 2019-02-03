@@ -19,6 +19,8 @@
 	</properties>
 
 	<dependencies>
+	
+		<!-- SPRING BOOT -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -33,11 +35,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- WEB3J -->
 		<dependency>
 		  <groupId>org.web3j</groupId>
 		  <artifactId>core</artifactId>
 		  <version>4.1.0</version>
-		</dependency>
+		</dependency>		
 	</dependencies>
 
 	<build>

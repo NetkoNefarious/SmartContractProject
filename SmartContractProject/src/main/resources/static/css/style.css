@@ -22,11 +22,11 @@ html {
 /* #endregion */
 
 /* MOJ CSS */
-main tbody > tr {
+#main tbody > tr {
   transition: background-color 0.2s;
 }
 
-main tbody > tr:hover {
+#main tbody > tr:hover {
   background-color: #eeeeee;
 }
 
@@ -49,6 +49,6 @@ footer {
 }
 
 /* balanceResult */
-main #links a {
+#main #links a {
   display: block;
 }

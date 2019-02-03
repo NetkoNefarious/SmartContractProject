@@ -22,6 +22,7 @@
         <h5 class="my-0 mr-md-auto font-weight-normal">Ethereum - Smart contracts</h5>
 
         <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="javascript:void(0)">Check Ether balance</a>
             <a class="p-2 text-dark" href="javascript:void(0)">Transfer Ether</a>
             <a class="p-2 text-dark" href="javascript:void(0)">Deploy a smart contract</a>
         </nav>
@@ -30,28 +31,32 @@
 
     <!-- Naslov stranice-->
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Ether transfer</h1>
-        <p class="lead">Make transfers to an account</p>
+        <h1 class="display-4">Address</h1>
+        <p class="lead">0x13ef23abb2fdebb3c7244a13a624bf7d0ee60803</p>
     </div>
 
     <!-- Glavni sadržaj -->
     <main class="container">
-        <form>
-            <div class="form-group border-none">
-                <label for="keystore">Wallet</label>
-                <input type="file" id="keystore" placeholder="Select your wallet file">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your keystore with anyone else.</small>
+        <section class="text-center">
+            <h1 class="display-4">Balance</h1>
+            <p class="lead">2.9999999 ether</p>
+        </section>
+
+        <section class="text-center" id="links">
+            <h4>Options</h4>
+            <a href="#">Check balance of another account</a>
+            <a href="#">Transfer Ether from this account</a>
+            <a href="#">Deploy a smart contract from this account</a>
+        </section>
+
+        <!--form>
+            <div class="input-group mb-3" id="ethAddr">
+                <input type="text" class="form-control" placeholder="Enter your wallet address here">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Check</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </form-->
     </main>
 
     <!-- FOOTER -->
