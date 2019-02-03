@@ -1,0 +1,45 @@
+/* #region STARI CSS */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}
+/* #endregion */
+
+/* MOJ CSS */
+main tbody > tr {
+  transition: background-color 0.2s;
+}
+
+main tbody > tr:hover {
+  background-color: #eeeeee;
+}
+
+.list-group .list-group-item * {
+  padding-right: 0.5rem;
+}
+
+header #ethLogo {
+  max-height: 4rem;
+}
+
+@media only screen and (min-width: 768px) {
+  header #ethLogo {
+    padding-right: 2rem;
+  }
+}
