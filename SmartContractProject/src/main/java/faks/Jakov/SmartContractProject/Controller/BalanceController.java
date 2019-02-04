@@ -1,7 +1,5 @@
 package faks.Jakov.SmartContractProject.Controller;
 
-import java.math.BigInteger;
-
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,15 +39,18 @@ public class BalanceController {
 		}
 		try {
 			// Dobivanje interface za pristupanje stanju računa
+			logger.info("Fetching EthGetBalance class");
 			EthGetBalance ethGetBalance = web3j
 					.ethGetBalance(address.getAddress(), DefaultBlockParameterName.LATEST)
 					.sendAsync().get();
 			
 			// Dobivanje stanja u valuti wei i pretvorba u ether
+			logger.info("Fetching the wallet balance");
 			String wei = ethGetBalance.getBalance().toString();
 			address.setEther(Convert.fromWei(wei, Convert.Unit.ETHER).toPlainString());
 			
 			// Ubacivanje modela natrag u view
+			logger.info("Done");
 			model.addAttribute("ethAddress", address);			
 			return "balanceResult";
 		}

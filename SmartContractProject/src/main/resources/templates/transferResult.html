@@ -34,25 +34,18 @@
 
     <!-- Naslov stranice-->
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Address</h1>
-        <p class="lead" th:text="${ethAddress.address}"/>
+        <h1 class="display-4">Transfer complete</h1>
+        <p class="lead">For more information, go to:</p>
+        <a th:href="${link}" class="lead">Transaction Report - Etherscan</a>
     </div>
 
     <!-- Glavni sadržaj -->
     <div class="container" id="main">
-        <section class="text-center mb-4">
-            <h1 class="display-4">Balance</h1>
-            <p class="lead" th:text="|${ethAddress.ether} ether|"/>
-            
-            <h5>More information at:</h5>
-            <a th:href="|https://rinkeby.etherscan.io/address/${ethAddress.address}|">Etherscan</a>
-        </section>
-
         <section class="text-center" id="links">
             <h4>Options</h4>
-            <a href="/balance">Check balance of another account</a>
-            <a href="/transfer">Transfer Ether</a>
-            <a href="javascript:void(0)">Deploy a smart contract</a>
+            <a href="/balance">Check balance</a>
+            <a href="/transfer">Transfer Ether to another account</a>
+            <a href="#">Deploy a smart contract</a>
         </section>
     </div>
 

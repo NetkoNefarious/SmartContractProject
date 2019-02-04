@@ -14,13 +14,18 @@
     <!-- Custom styles for this template -->
     <link th:href="@{/css/style.css}" rel="stylesheet">
     
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
+    
+    <!-- If the Ethereum address is wrong, display an alert -->
 	<script th:inline="javascript">
-	/*<![CDATA[*/
-		if (/*[[${error != null}]]*/) {
-			alert("Wrong address!");
-		}
-	/*]]>*/
+		/*<![CDATA[*/
+			if (/*[[${error != null}]]*/) {
+				alert(/*[[|${error}|]]*/);
+			}
+		/*]]>*/
 	</script>
+	
 </head>
 <body>
     <!-- Zaglavlje -->
@@ -30,7 +35,7 @@
 
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/balance">Check Ether balance</a>
-            <a class="p-2 text-dark" href="javascript:void(0)">Transfer Ether</a>
+            <a class="p-2 text-dark" href="/transfer">Transfer Ether</a>
             <a class="p-2 text-dark" href="javascript:void(0)">Deploy a smart contract</a>
         </nav>
         <a class="btn btn-outline-primary" href="https://getbootstrap.com/docs/4.1/examples/pricing/#">Log out</a>
