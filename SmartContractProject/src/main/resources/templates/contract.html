@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -9,21 +9,34 @@
     <title>Ethereum smart contracts</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/bootstrap/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./assets/css/style.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
+    
+    <!-- If something went wrong during the process, display an alert -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+			if (/*[[${error != null}]]*/) {
+				alert(/*[[|${error}|]]*/);
+			}
+		/*]]>*/
+	</script>
 </head>
 
 <body>
     <!-- Zaglavlje -->
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <img src="assets/images/ethereum.svg" id="ethLogo">
+        <img th:src="@{images/ethereum.svg}" id="ethLogo">
         <h5 class="my-0 mr-md-auto font-weight-normal">Ethereum - Smart contracts</h5>
 
         <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="javascript:void(0)">Transfer Ether</a>
-            <a class="p-2 text-dark" href="javascript:void(0)">Deploy a smart contract</a>
+            <a class="p-2 text-dark" href="/balance">Check Ether balance</a>
+            <a class="p-2 text-dark" href="/transfer">Transfer Ether</a>
+            <a class="p-2 text-dark" href="/contract">Deploy a smart contract</a>
         </nav>
         <a class="btn btn-outline-primary" href="https://getbootstrap.com/docs/4.1/examples/pricing/#">Log out</a>
     </header>
@@ -35,19 +48,21 @@
     </div>
 
     <!-- Glavni sadržaj -->
-    <main class="container">
-        <form class="row">
+    <div class="container" id="main">
+        <form class="row" method="post" th:action="@{/contract}"
+        	enctype="multipart/form-data">
             <section id="from" class="col border rounded my-2 p-4 text-center">
                 <h5 class="display-4">Credentials</h5>
                 <div class="row my-4">
                     <div class="form-group border-none float-left col-12 col-md">
                         <h5>Wallet</h5>
-                        <input type="file" id="keystore" placeholder="Select your wallet file">
+                        <input type="file" name="file" id="keystore">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your keystore with anyone else.</small>
                     </div>
                     <div class="form-group float-right col-12 col-md">
                         <h5>Password</h5>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" name="pass" class="form-control"
+                        	placeholder="Password">
                     </div>
                 </div>
             </section>
@@ -64,14 +79,14 @@
                     <div class="form-group text-center col-12">
                         <label for="msg">Message</label>
                         <input type="text" name="msg" id="msg" class="form-control"
-                        placeholder="Enter your message here">
+                        	placeholder="Enter your message here">
                     </div>
                 </div>
             </section>
 
             <button type="submit" class="btn btn-primary mx-auto">Deploy the contract</button>
         </form>
-    </main>
+    </div>
 
     <!-- FOOTER -->
     <footer class="container-fluid">
@@ -81,15 +96,9 @@
     </footer>
 
     <!-- Bootstrap dependencies -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

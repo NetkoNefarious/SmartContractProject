@@ -16,17 +16,8 @@
     
     <!-- Favicon -->
     <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
-    
-    <!-- If the Ethereum address is wrong, display an alert -->
-	<script th:inline="javascript">
-		/*<![CDATA[*/
-			if (/*[[${error != null}]]*/) {
-				alert(/*[[|${error}|]]*/);
-			}
-		/*]]>*/
-	</script>
-	
 </head>
+
 <body>
     <!-- Zaglavlje -->
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -43,21 +34,24 @@
 
     <!-- Naslov stranice-->
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Ether balance</h1>
-        <p class="lead">See your account balance in a jiffy</p>
+        <h1 class="display-4">Deployment complete</h1>
+        <p class="lead">For more information, go to:</p>
+        <a th:href="${link}" class="lead">Contract Report - Etherscan</a>
     </div>
 
     <!-- Glavni sadržaj -->
     <div class="container" id="main">
-        <form action="#" th:action="@{/balance}" th:object="${ethAddress}" method="post">
-            <div class="input-group mb-3" id="ethAddr">
-                <input type="text" th:field="*{address}" class="form-control"
-                	placeholder="Enter your wallet address here"/>
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Check</button>
-                </div>
-            </div>
-        </form>
+	    <section class="text-center" id="links">
+            <h4>Message</h4>
+            <p th:text="${msg}"></p>
+        </section>
+    	
+        <section class="text-center" id="links">
+            <h4>Options</h4>
+            <a href="/balance">Check balance</a>
+            <a href="/transfer">Transfer Ether to an account</a>
+            <a href="/contract">Deploy another smart contract</a>
+        </section>
     </div>
 
     <!-- FOOTER -->
