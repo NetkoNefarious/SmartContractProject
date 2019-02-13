@@ -23,36 +23,39 @@
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <img th:src="@{images/ethereum.svg}" id="ethLogo">
         <h5 class="my-0 mr-md-auto font-weight-normal">Ethereum - Smart contracts</h5>
-
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/balance">Check Ether balance</a>
-            <a class="p-2 text-dark" href="/transfer">Transfer Ether</a>
-            <a class="p-2 text-dark" href="/contract">Deploy a smart contract</a>
-        </nav>
-        
-        <a class="btn btn-outline-primary" th:href="@{/logout}">Log out</a>
     </header>
 
     <!-- Naslov stranice-->
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Deployment complete</h1>
-        <p class="lead">For more information, go to:</p>
-        <a th:href="${link}" class="lead">Contract Report - Etherscan</a>
+        <h1 class="display-4">Login</h1>
     </div>
 
     <!-- Glavni sadržaj -->
     <div class="container" id="main">
-	    <section class="text-center" id="links">
-            <h4>Message</h4>
-            <p th:text="${msg}"></p>
-        </section>
-    	
-        <section class="text-center" id="links">
-            <h4>Options</h4>
-            <a href="/balance">Check balance</a>
-            <a href="/transfer">Transfer Ether to an account</a>
-            <a href="/contract">Deploy another smart contract</a>
-        </section>
+       	<div th:if="${param.error}" class="text-center">
+            <p>Invalid username and password.</p>
+        </div>
+        
+        <div th:if="${param.logout}" class="text-center">
+            <p>You have been logged out.</p>
+        </div>
+        
+        <form th:action="@{/login}" method="post"
+        	class="border rounded p-4 text-center" id="login">
+            <div class="form-group">
+            	<label>
+            		Username <input type="text" name="username" class="form-control"/>
+           		</label>
+            </div>
+            <div class="form-group">
+            	<label>
+            		Password <input type="password" name="password" class="form-control"/>
+            	</label>
+           	</div>
+            <div>
+            	<input type="submit" value="Sign In" class="btn btn-primary"/>
+           	</div>
+        </form>
     </div>
 
     <!-- FOOTER -->

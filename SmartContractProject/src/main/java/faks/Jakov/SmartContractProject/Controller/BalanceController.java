@@ -1,5 +1,9 @@
 package faks.Jakov.SmartContractProject.Controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +27,11 @@ public class BalanceController {
 	@Autowired
 	private Logger logger;
 	
+    @GetMapping("/")
+    public void redirectToBalance(HttpServletResponse httpResponse) throws IOException{
+        httpResponse.sendRedirect("/balance");
+    }
+    
 	@GetMapping("/balance")
 	public String getBalanceForm(Model model) {
 		model.addAttribute("ethAddress", new EthAddress());

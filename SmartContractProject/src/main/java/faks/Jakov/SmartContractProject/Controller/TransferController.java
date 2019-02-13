@@ -52,7 +52,7 @@ public class TransferController {
     	
     	// Check if the filename ends with .json
     	if (!keystore.getOriginalFilename().endsWith(".json")) {
-			model.addAttribute("error", "The uploaded file is not a JSON file.");
+			model.addAttribute("error", "The uploaded file is not a JSON wallet file.");
 			return "transfer";
     	}
     	
