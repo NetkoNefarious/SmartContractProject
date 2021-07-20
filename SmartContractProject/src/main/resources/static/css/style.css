@@ -22,11 +22,11 @@ html {
 /* #endregion */
 
 /* MOJ CSS */
-main tbody > tr {
+#main tbody > tr {
   transition: background-color 0.2s;
 }
 
-main tbody > tr:hover {
+#main tbody > tr:hover {
   background-color: #eeeeee;
 }
 
@@ -44,19 +44,11 @@ header #ethLogo {
   }
 }
 
-textarea {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  width: 100%;
-}
-
 footer {
   margin-top: 4rem;
 }
 
 /* balanceResult */
-main #links a {
+#main #links a {
   display: block;
 }
