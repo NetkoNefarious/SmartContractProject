@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override // Authentication
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
     	String ENCODED_PASSWORD // password
-    		= "$2a$04$YwcuDYN6XqAQM6vqkpcMNueM9EZiZ7WnbUe7PLak5KNOkJ17BtorK";
+    		= "$2a$12$M5tWOEy.7m3nyDVftiXC/uRAQgvujmBCbKlSk5t.SY4j/Nfixw2hO";
     	
 		auth.inMemoryAuthentication()
 			.passwordEncoder(passwordEncoder())
